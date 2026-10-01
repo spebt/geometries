@@ -1,0 +1,4 @@
+Layout 001 Ring 2
+PPDS max      : 0.052752
+Nonzero V_i   : 720 / 3360
+V_i mean/median(min,max): 80.9844 / 82.6294 (64.9945, 95.2938)

@@ -1,0 +1,4 @@
+Layout 001 Ring 4
+PPDS max      : 0.0152527
+Nonzero V_i   : 1200 / 3360
+V_i mean/median(min,max): 61.0744 / 59.8938 (49.0754, 79.7733)

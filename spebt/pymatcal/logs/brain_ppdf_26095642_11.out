@@ -1,0 +1,11 @@
+Array=11 Layout=1 Panel=5
+--- Brain SPECT PPDF | layout=1 | single_panel=5 ---
+[Brain SPECT] layout=1 | FOV=(200, 200) @ (200.0, 200.0) mm
+  Total crystals in layout: 720
+  Single-panel mode: panel=5 crystals 600..719 (120 crystals)
+  → writing /vscratch/grp-rutaoyao/Tridev/brain_spect/data/brain_spect_ppdfs_layout001_panel05.hdf5
+  crystals=120 | fov_pxs=40000 | sfov=4 | threads=25
+    50/120 crystals (9s elapsed, ETA 13s)
+    100/120 crystals (16s elapsed, ETA 3s)
+  done in 18.84 s  →  /vscratch/grp-rutaoyao/Tridev/brain_spect/data/brain_spect_ppdfs_layout001_panel05.hdf5
+Done layout=1 panel=5

@@ -1,0 +1,35 @@
+==========================================================
+Job ID: 22984954
+Job Array ID: 22984954
+Array Task ID: 1
+Running on host: cpn-d02-04.core.ccr.buffalo.edu
+Working directory: /vscratch/grp-rutaoyao/Omer/spebt/pymatcal
+Start Time: Mon Jan  5 12:50:56 AM EST 2026
+==========================================================
+/var/spool/slurmd/job22984954/slurm_script: line 36: ../venv/bin/activate: No such file or directory
+Executing Python script for layout index 1...
+--- Starting PPDF calculation for Layout Index: 1 ---
+PyTorch using 25 threads.
+plate_objects_vertices shape: torch.Size([360, 4, 2])
+crystal_objects_vertices shape: torch.Size([3360, 4, 2])
+Found 3360 crystals in layout 1.
+Traceback (most recent call last):
+  File "/vscratch/grp-rutaoyao/Omer/spebt/pymatcal/arg_ppdf_calculation.py", line 131, in <module>
+    calculate_ppdf_for_layout(layout_to_process)
+  File "/vscratch/grp-rutaoyao/Omer/spebt/pymatcal/arg_ppdf_calculation.py", line 83, in calculate_ppdf_for_layout
+    with h5py.File(h5_file_path, "w") as h5file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vscratch/grp-rutaoyao/Omer/.venv/lib/python3.12/site-packages/h5py/_hl/files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vscratch/grp-rutaoyao/Omer/.venv/lib/python3.12/site-packages/h5py/_hl/files.py", line 247, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 124, in h5py.h5f.create
+BlockingIOError: [Errno 11] Unable to synchronously create file (unable to lock file, errno = 11, error message = 'Resource temporarily unavailable')
+==========================================================
+End Time: Mon Jan  5 12:51:00 AM EST 2026
+Job finished with exit code 0
+==========================================================

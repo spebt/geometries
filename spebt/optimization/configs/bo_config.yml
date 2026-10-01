@@ -1,0 +1,70 @@
+# Bayesian Optimization Configuration for SAI SC-SPECT
+# Design vector: (aperture_diam_mm, n_apertures) — 2D, hardware-only
+# Matches Kirtiraj's approach: sequential q=1, SingleTaskGP + EI
+
+# --- Design space bounds ---
+bounds:
+  aperture_diam_mm: [0.2, 1.0]     # hardware: aperture diameter (mm)
+  n_apertures: [60, 360]           # hardware: number of apertures on HR ring
+
+param_names:
+  - aperture_diam_mm
+  - n_apertures
+
+# --- Initial data ---
+lhs:
+  n_samples: 25                    # 2D needs fewer initial points than 3D
+  seed: 42
+
+# --- BO settings ---
+bo:
+  q: 1                             # sequential, one candidate per iteration (matches Kirtiraj)
+  max_iterations: 100              # total BO iterations after initial data
+  num_restarts: 10                 # L-BFGS-B restarts for acquisition optimization
+  raw_samples: 512                 # random candidates for acquisition initialization
+
+# --- GP settings ---
+gp:
+  model: SingleTaskGP              # BoTorch model class
+  kernel: Matern52                 # Matérn 5/2 with ARD lengthscales
+  normalize_inputs: true
+  standardize_outputs: true
+
+# --- Paths (adjust for HPC) ---
+paths:
+  geometry_script: /vscratch/grp-rutaoyao/Omer/spebt/spebt/geometry/generate_mph_scanner_circularfov.py
+  ppdf_script: /vscratch/grp-rutaoyao/Omer/spebt/spebt/pymatcal/arg_ppdf_t8.py
+  pipeline_script: /vscratch/grp-rutaoyao/Omer/spebt/spebt/optimization/run_sai_pipeline.sh
+  results_csv: /vscratch/grp-rutaoyao/Omer/spebt/spebt/optimization/results/results_summary.csv
+  manifest_csv: /vscratch/grp-rutaoyao/Omer/spebt/spebt/optimization/results/configs_manifest.csv
+  base_work_dir: /vscratch/grp-rutaoyao/Omer/spebt/spebt/optimization/results
+
+# --- SLURM settings ---
+slurm:
+  partition: general-compute
+  qos: general-compute
+  cpus_per_task: 25
+  mem: 16G
+  time: "03:00:00"
+
+# --- SAI system constants (fixed during BO) ---
+sai:
+  n_layouts: 2                     # 2 collimator rotations (0° and 1°)
+  n_t8_poses: 8                    # 8 bed positions (fixed at a=0.2, b=0.2)
+  a_mm: 0.2                       # T8 ellipse semi-axis X (fixed)
+  b_mm: 0.2                       # T8 ellipse semi-axis Y (fixed)
+  rot_angle_deg: 1.0
+  phase_deg: 0.0
+  fov_npix: [200, 200]
+  fov_size_mm: [10, 10]
+
+# --- Physical constraints ---
+constraints:
+  # aperture_diam must be < chord_spacing = 2 * r_center * sin(pi / n_apertures)
+  # r_center = 35 mm (inner_diam/2 + thickness/2 = 33.75 + 1.25)
+  # At n=60: chord = 2*35*sin(pi/60) = 3.66 mm → diam < 3.66 (safe)
+  # At n=360: chord = 2*35*sin(pi/360) = 0.61 mm → diam must be < 0.61
+  # The GP will learn this constraint from failed/low-JI configs
+  ring_inner_diam_mm: 67.5
+  ring_thickness_mm: 2.5
+  r_center_mm: 35.0

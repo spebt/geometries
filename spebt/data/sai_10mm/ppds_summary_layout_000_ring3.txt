@@ -1,0 +1,4 @@
+Layout 000 Ring 3
+PPDS max      : 0.0383766
+Nonzero V_i   : 960 / 3360
+V_i mean/median(min,max): 72.266 / 60.8548 (54.306, 1252.89)

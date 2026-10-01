@@ -1,0 +1,3 @@
+layout=000 tag=t4_agg
+t4_agg: PPDS and SENS are summed over the 4 poses (treated as extra projection elements).
+PPDS max: 1.21155e+10

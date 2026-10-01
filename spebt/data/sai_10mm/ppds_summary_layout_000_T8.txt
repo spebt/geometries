@@ -1,0 +1,4 @@
+Layout 000_T8
+PPDS max      : 0.586632
+Nonzero V_i   : 3360 / 3360
+V_i mean/median(min,max): 163.288 / 139.388 (96.7273, 2529.72)

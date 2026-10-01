@@ -1,0 +1,21 @@
+==========================================================
+Job ID: 22984941
+Job Array ID: 22984941
+Array Task ID: 1
+Running on host: cpn-d01-33.core.ccr.buffalo.edu
+Working directory: /vscratch/grp-rutaoyao/Omer/spebt/pymatcal
+Start Time: Mon Jan  5 12:34:51 AM EST 2026
+==========================================================
+/var/spool/slurmd/job22984941/slurm_script: line 36: ../venv/bin/activate: No such file or directory
+Executing Python script for layout index 1...
+--- Starting PPDF calculation for Layout Index: 1 ---
+PyTorch using 25 threads.
+plate_objects_vertices shape: torch.Size([360, 4, 2])
+crystal_objects_vertices shape: torch.Size([3360, 4, 2])
+Found 3360 crystals in layout 1.
+--- Finished Layout 1 in 1043.66 seconds. ---
+Results saved to /vscratch/grp-rutaoyao/Omer/spebt/data/sai_10mm/position_001_ppdfs.hdf5
+==========================================================
+End Time: Mon Jan  5 12:52:26 AM EST 2026
+Job finished with exit code 0
+==========================================================

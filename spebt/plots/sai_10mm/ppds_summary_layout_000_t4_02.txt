@@ -1,0 +1,4 @@
+layout=000 tag=t4_02
+PPDS max: 3.39915e+09
+volume model: V = (FWHM (mm))^2 (2D proxy)
+denom V_i (per-detector) stats: min=1e-12, mean=6.66517, max=4096.74

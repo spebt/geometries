@@ -1,0 +1,19 @@
+# Configs that were evaluated but deliberately left out of
+# results_summary_mobo.csv. One name per line, with the reason.
+#
+# check_unmerged_results.py reads this so that "we meant to leave that out" is
+# recorded here rather than remembered, and so the report stays short enough
+# that anyone actually reads it.
+
+tmi_reference_000   # Published TMI benchmark, not a search point. Its numbers
+                    # come from the 5-seed runs in results/cnr_repeats/, and
+                    # merging it would put a fixed reference into GP training.
+
+ring2_000           # 12 Aug headroom sweep. Complete and read (answer: no
+ring2_001           # headroom above 960 ring-2 crystals, flat to 1218 then
+ring2_002           # falling), but held out of the archive: the batch reads
+ring2_003           # ~0.25 CNR below the archive scale for a design that
+ring2_004           # should match mobo_0296, and the cause is not yet found.
+ring2_005           # A 5-seed re-measurement of ring2_000 settles it. Merge
+ring2_006           # only after that. See AUDIT_REPORT.md, "Fresh-eyes audit".
+ring2_007

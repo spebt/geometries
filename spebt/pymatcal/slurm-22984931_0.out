@@ -1,0 +1,18 @@
+==========================================================
+Job ID: 22984932
+Job Array ID: 22984931
+Array Task ID: 0
+Running on host: cpn-d01-33.core.ccr.buffalo.edu
+Working directory: /vscratch/grp-rutaoyao/Omer/spebt/pymatcal
+Start Time: Mon Jan  5 12:26:50 AM EST 2026
+==========================================================
+/var/spool/slurmd/job22984932/slurm_script: line 36: ../venv/bin/activate: No such file or directory
+Executing Python script for layout index 0...
+  File "/vscratch/grp-rutaoyao/Omer/spebt/pymatcal/arg_ppdf_calculation.py", line 49
+    mu_dict = tensor([3.5, 0.5], device=default_device).                 # materials used for raytracing
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax
+==========================================================
+End Time: Mon Jan  5 12:26:50 AM EST 2026
+Job finished with exit code 0
+==========================================================

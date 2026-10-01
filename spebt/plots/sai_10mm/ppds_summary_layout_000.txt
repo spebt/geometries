@@ -1,0 +1,4 @@
+Layout 000
+PPDS max      : 0.034193
+Nonzero V_i   : 3336 / 3360
+V_i mean/median(min,max): 79.2577 / 74.8929 (21.1221, 194.131)
